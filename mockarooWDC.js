@@ -105,7 +105,7 @@
                             "ATN": feat[i].ATN
                         });
                     }
-                } else 0 
+                }
             };
             if (apiCallString == "fleet_data.json") {
                 if (table.tableInfo.id == "Mockaroo_Store_Data") {
@@ -123,7 +123,7 @@
                             "ship_mode":feat[i].ship_mode
                         });
                     }
-                } else 0
+                }
             };    
 
     
