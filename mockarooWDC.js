@@ -82,6 +82,7 @@
     };
 
     myConnector.getData = function(table, doneCallback) {
+        var apiCallString = JSON.parse(tableau.connectionData)
         apiCall= "https://my.api.mockaroo.com/"+ apiCallString + "?key=171ff1e0"
 
         $.getJSON(apiCall, function(resp) {
@@ -141,12 +142,14 @@
 
     $(document).ready(function () {
         $("#submitButton").click(function () {
-            var apiCallString = "fleet_data.json"
+            var apiCallString = "fleet_data.json";
+            tableau.connectionData = JSON.stringify(apiCallString);
             tableau.connectionName = "Mockaroo Fleet data API";
             tableau.submit();
         });
         $("#submitButton1").click(function () {
-            var apiCallString = "store_data.json"
+            var apiCallString = "store_data.json";
+            tableau.connectionData = JSON.stringify(apiCallString);
             tableau.connectionName = "Mockaroo Store data API";
             tableau.submit();
         });
