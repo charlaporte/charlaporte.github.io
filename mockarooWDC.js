@@ -2,8 +2,9 @@
     var myConnector = tableau.makeConnector();
 
     myConnector.getSchema = function (schemaCallback) {
+        var apiCallString = JSON.parse(tableau.connectionData)    
         if (apiCallString == "fleet_data.json") {
-            var fleet_data_cols = [{
+        var fleet_data_cols = [{
                 id: "id",
                 dataType: tableau.dataTypeEnum.string
             },{
@@ -39,8 +40,10 @@
                 alias: "MockarooFleetData",
                 columns: fleet_data_cols
             };
-        }
-        if (apiCallString == "fleet_data.json") {
+        
+            schemaCallback([fleetData]);
+        
+        } else if (apiCallString == "store_data.json"){
             var store_data_cols = [{
                 id: "id",
                 dataType: tableau.dataTypeEnum.string
@@ -77,8 +80,10 @@
                 alias: "MockarooStoreData",
                 columns: store_data_cols
             };
+        
+            schemaCallback([storeData]);
+
         }
-        schemaCallback([schemaCallback]);
 
     };
 
@@ -91,50 +96,48 @@
                 tableData = [];
 
             var i = 0;
+
+            var fleetData_cols = {"id": feat[i].id,
+            "gender": feat[i].gender,
+            "first_name": feat[i].first_name,
+            "last_name": feat[i].last_name,
+            "email": feat[i].email,
+            "car_maker": feat[i]["car maker"],
+            "car_model": feat[i]["car model"],
+            "start_date": feat[i]["start date"],
+            "end_date": feat[i]["end date"],
+            "ATN": feat[i].ATN};
+
+            var storeData_cols = {
+                "id": feat[i].id,
+                "product_name": feat[i].product_name,
+                "shop":feat[i].shop,
+                "quantity": feat[i].quantity,
+                "sales": feat[i].sales,
+                "profit": feat[i].profit,
+                "purchase_date": feat[i].purchase_date,
+                "ship_date": feat[i].ship_date,
+                "arrival_date": feat[i].arrival_date,
+                "ship_mode":feat[i].ship_mode
+            }
+
             if (apiCallString == "fleet_data.json") {
                 if (table.tableInfo.id == "Mockaroo_Fleet_Data") {
                     for (i = 0, len = feat.length; i < len; i++) {
                         tableData.push({
-                            "id": feat[i].id,
-                            "gender": feat[i].gender,
-                            "first_name": feat[i].first_name,
-                            "last_name": feat[i].last_name,
-                            "email": feat[i].email,
-                            "car_maker": feat[i]["car maker"],
-                            "car_model": feat[i]["car model"],
-                            "start_date": feat[i]["start date"],
-                            "end_date": feat[i]["end date"],
-                            "ATN": feat[i].ATN
+                            fleetData_cols
                         });
                     }
                 }
-            };
-            if (apiCallString == "fleet_data.json") {
+            } else if (apiCallString == "fleet_data.json") {
                 if (table.tableInfo.id == "Mockaroo_Store_Data") {
                     for (i = 0, len = feat.length; i < len; i++) {
                         tableData.push({
-                            "id": feat[i].id,
-                            "product_name": feat[i].product_name,
-                            "shop":feat[i].shop,
-                            "quantity": feat[i].quantity,
-                            "sales": feat[i].sales,
-                            "profit": feat[i].profit,
-                            "purchase_date": feat[i].purchase_date,
-                            "ship_date": feat[i].ship_date,
-                            "arrival_date": feat[i].arrival_date,
-                            "ship_mode":feat[i].ship_mode
+                            storeData_cols
                         });
                     }
                 }
-            };    
-
-    
-            // Iterate over the JSON object
-            for (var i = 0, len = feat.length; i < len; i++) {
-                tableData.push({
-                    
-                });
-            }
+            };   
     
             table.appendRows(tableData);
             doneCallback();
