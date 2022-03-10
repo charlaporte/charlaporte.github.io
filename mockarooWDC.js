@@ -89,39 +89,41 @@
                 tableData = [];
 
             var i = 0;
-
-            if (table.tableInfo.id == "Mockaroo_Fleet_Data") {
-                for (i = 0, len = feat.length; i < len; i++) {
-                    tableData.push({
-                        "id": feat[i].id,
-                        "gender": feat[i].gender,
-                        "first_name": feat[i].first_name,
-                        "last_name": feat[i].last_name,
-                        "email": feat[i].email,
-                        "car_maker": feat[i]["car maker"],
-                        "car_model": feat[i]["car model"],
-                        "start_date": feat[i]["start date"],
-                        "end_date": feat[i]["end date"],
-                        "ATN": feat[i].ATN
-                    });
-                }
+            if (apiCallString == "fleet_data.json") {
+                if (table.tableInfo.id == "Mockaroo_Fleet_Data") {
+                    for (i = 0, len = feat.length; i < len; i++) {
+                        tableData.push({
+                            "id": feat[i].id,
+                            "gender": feat[i].gender,
+                            "first_name": feat[i].first_name,
+                            "last_name": feat[i].last_name,
+                            "email": feat[i].email,
+                            "car_maker": feat[i]["car maker"],
+                            "car_model": feat[i]["car model"],
+                            "start_date": feat[i]["start date"],
+                            "end_date": feat[i]["end date"],
+                            "ATN": feat[i].ATN
+                        });
+                    }
+                } else 0 
             };
-    
-            if (table.tableInfo.id == "Mockaroo_Store_Data") {
-                for (i = 0, len = feat.length; i < len; i++) {
-                    tableData.push({
-                        "id": feat[i].id,
-                        "product_name": feat[i].product_name,
-                        "shop":feat[i].shop,
-                        "quantity": feat[i].quantity,
-                        "sales": feat[i].sales,
-                        "profit": feat[i].profit,
-                        "purchase_date": feat[i].purchase_date,
-                        "ship_date": feat[i].ship_date,
-                        "arrival_date": feat[i].arrival_date,
-                        "ship_mode":feat[i].ship_mode
-                    });
-                }
+            if (apiCallString == "fleet_data.json") {
+                if (table.tableInfo.id == "Mockaroo_Store_Data") {
+                    for (i = 0, len = feat.length; i < len; i++) {
+                        tableData.push({
+                            "id": feat[i].id,
+                            "product_name": feat[i].product_name,
+                            "shop":feat[i].shop,
+                            "quantity": feat[i].quantity,
+                            "sales": feat[i].sales,
+                            "profit": feat[i].profit,
+                            "purchase_date": feat[i].purchase_date,
+                            "ship_date": feat[i].ship_date,
+                            "arrival_date": feat[i].arrival_date,
+                            "ship_mode":feat[i].ship_mode
+                        });
+                    }
+                } else 0
             };    
 
     
