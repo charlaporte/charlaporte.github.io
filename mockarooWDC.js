@@ -47,8 +47,7 @@
             dataType: tableau.dataTypeEnum.string
         },{
             id: "shop",
-            dataType: tableau.dataTypeEnum.string,
-            geoType: tableau.geoTypeEnum.city
+            dataType: tableau.dataTypeEnum.string
         },{
             id: "quantity",
             dataType: tableau.dataTypeEnum.float
