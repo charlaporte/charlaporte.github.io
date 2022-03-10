@@ -127,7 +127,7 @@
                             "purchase_date": feat[i].purchase_date,
                             "ship_date": feat[i].ship_date,
                             "arrival_date": feat[i].arrival_date,
-                            "ship_mode":feat[i].ship_modes
+                            "ship_mode":feat[i].ship_mode
                         });
                     }
                 }
