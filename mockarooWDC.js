@@ -2,81 +2,83 @@
     var myConnector = tableau.makeConnector();
 
     myConnector.getSchema = function (schemaCallback) {
-
-        var fleet_data_cols = [{
-            id: "id",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "gender",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "first_name",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "last_name",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "email",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "car_maker",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "car_model",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "start_date",
-            dataType: tableau.dataTypeEnum.date
-        },{
-            id: "end_date",
-            dataType: tableau.dataTypeEnum.date
-        },{
-            id: "ATN",
-            dataType: tableau.dataTypeEnum.float
-        }]
-        var fleetData = {
-            id: "Mockaroo_Fleet_Data",
-            alias: "MockarooFleetData",
-            columns: fleet_data_cols
-        };
-        var store_data_cols = [{
-            id: "id",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "product_name",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "shop",
-            dataType: tableau.dataTypeEnum.string
-        },{
-            id: "quantity",
-            dataType: tableau.dataTypeEnum.float
-        },{
-            id: "sales",
-            dataType: tableau.dataTypeEnum.float
-        },{
-            id: "profit",
-            dataType: tableau.dataTypeEnum.float
-        },{
-            id: "purchase_date",
-            dataType: tableau.dataTypeEnum.date
-        },{
-            id: "ship_date",
-            dataType: tableau.dataTypeEnum.date
-        },{
-            id: "arrival_date",
-            dataType: tableau.dataTypeEnum.date
-        },{
-            id: "ship_mode",
-            dataType: tableau.dataTypeEnum.string
-        }]
-        var storeData = {
-            id: "Mockaroo_Store_Data",
-            alias: "MockarooStoreData",
-            columns: store_data_cols
-        };
-    
-        schemaCallback([fleetData, storeData]);
+        if (apiCallString == "fleet_data.json") {
+            var fleet_data_cols = [{
+                id: "id",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "gender",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "first_name",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "last_name",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "email",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "car_maker",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "car_model",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "start_date",
+                dataType: tableau.dataTypeEnum.date
+            },{
+                id: "end_date",
+                dataType: tableau.dataTypeEnum.date
+            },{
+                id: "ATN",
+                dataType: tableau.dataTypeEnum.float
+            }]
+            var fleetData = {
+                id: "Mockaroo_Fleet_Data",
+                alias: "MockarooFleetData",
+                columns: fleet_data_cols
+            };
+        }
+        if (apiCallString == "fleet_data.json") {
+            var store_data_cols = [{
+                id: "id",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "product_name",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "shop",
+                dataType: tableau.dataTypeEnum.string
+            },{
+                id: "quantity",
+                dataType: tableau.dataTypeEnum.float
+            },{
+                id: "sales",
+                dataType: tableau.dataTypeEnum.float
+            },{
+                id: "profit",
+                dataType: tableau.dataTypeEnum.float
+            },{
+                id: "purchase_date",
+                dataType: tableau.dataTypeEnum.date
+            },{
+                id: "ship_date",
+                dataType: tableau.dataTypeEnum.date
+            },{
+                id: "arrival_date",
+                dataType: tableau.dataTypeEnum.date
+            },{
+                id: "ship_mode",
+                dataType: tableau.dataTypeEnum.string
+            }]
+            var storeData = {
+                id: "Mockaroo_Store_Data",
+                alias: "MockarooStoreData",
+                columns: store_data_cols
+            };
+        }
+        schemaCallback([schemaCallback]);
 
     };
 
